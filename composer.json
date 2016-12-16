@@ -1,0 +1,8 @@
+{
+    "name": "scottbedard/oc-socialite-plugin",
+    "description": "Socialite API for RainLab.User",
+    "license": "MIT",
+    "require": {
+        "laravel/socialite": "^2.0"
+    }
+}
