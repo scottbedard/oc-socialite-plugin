@@ -3,8 +3,25 @@
 # ===================================
 
 fields:
-
     is_enabled:
         label: bedard.socialite::lang.settings.fields.is_enabled
         comment: bedard.socialite::lang.settings.fields.is_enabled_comment
         type: switch
+tabs:
+    stretch: true
+    fields:
+        facebook_is_enabled:
+            label: bedard.socialite::lang.settings.facebook.is_enabled
+            comment: bedard.socialite::lang.settings.facebook.is_enabled_comment
+            tab: bedard.socialite::lang.settings.facebook.tab
+            type: switch
+
+        facebook_id:
+            label: bedard.socialite::lang.settings.facebook.id
+            tab: bedard.socialite::lang.settings.facebook.tab
+            span: left
+
+        facebook_secret:
+            label: bedard.socialite::lang.settings.facebook.secret
+            tab: bedard.socialite::lang.settings.facebook.tab
+            span: right
