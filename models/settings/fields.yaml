@@ -1,0 +1,10 @@
+# ===================================
+#  Form Field Definitions
+# ===================================
+
+fields:
+
+    is_enabled:
+        label: bedard.socialite::lang.settings.fields.is_enabled
+        comment: bedard.socialite::lang.settings.fields.is_enabled_comment
+        type: switch

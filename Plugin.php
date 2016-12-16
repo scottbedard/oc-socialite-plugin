@@ -1,8 +1,10 @@
 <?php namespace Bedard\Socialite;
 
 use App;
+use Backend;
 use Illuminate\Foundation\AliasLoader;
 use System\Classes\PluginBase;
+use System\Classes\SettingsManager;
 
 /**
  * Socialite Plugin Information File
@@ -46,13 +48,31 @@ class Plugin extends PluginBase
      */
     public function registerPermissions()
     {
-        return []; // Remove this line to activate
-
         return [
-            'bedard.socialite.some_permission' => [
-                'tab' => 'Socialite',
-                'label' => 'Some permission'
+            'bedard.socialite.manage' => [
+                'tab' => 'rainlab.user::lang.plugin.tab',
+                'label' => 'bedard.socialite::lang.plugin.permissions.socialite',
             ],
+        ];
+    }
+
+    /**
+     * Register settings models.
+     *
+     * @return array
+     */
+    public function registerSettings()
+    {
+        return [
+            'socialite' => [
+                'label'       => 'bedard.socialite::lang.settings.label',
+                'description' => 'bedard.socialite::lang.settings.description',
+                'category'    => SettingsManager::CATEGORY_USERS,
+                'icon'        => 'icon-key',
+                'class'       => 'Bedard\Socialite\Models\Settings',
+                'order'       => 600,
+                'permissions' => ['rainlab.users.access_settings', 'bedard.socialite.manage'],
+            ]
         ];
     }
 
