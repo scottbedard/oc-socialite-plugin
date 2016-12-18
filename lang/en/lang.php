@@ -27,7 +27,18 @@ return[
             'secret' => 'App Secret',
             'tab' => 'Facebook',
         ],
+        'github' => [
+            'id' => 'Client ID',
+            'is_enabled_comment' => 'Turning this off will disable authentication with GitHub.',
+            'is_enabled' => 'GitHub authentication',
+            'secret' => 'Client secret',
+            'tab' => 'GitHub',
+        ],
         'fields' => [
+            'callback' => 'Callback URL',
+            'copy_callback' => 'Copy to clipboard',
+            'copy_failed' => 'Your browser prevented copying the callback url.',
+            'copy_success' => 'The callback url has been copied to your clipboard.',
             'is_enabled_comment' => 'Turning this off will disable all third-party authentication.',
             'is_enabled' => 'Socialite authentication',
         ],

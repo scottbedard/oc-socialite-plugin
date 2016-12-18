@@ -42,6 +42,18 @@ class Plugin extends PluginBase
     }
 
     /**
+     * Register form widgets.
+     *
+     * @return array
+     */
+    public function registerFormWidgets()
+    {
+        return [
+            'Bedard\Socialite\FormWidgets\Callback' => 'callback',
+        ];
+    }
+
+    /**
      * Registers any back-end permissions used by this plugin.
      *
      * @return array
