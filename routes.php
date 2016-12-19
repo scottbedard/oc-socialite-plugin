@@ -31,4 +31,15 @@ Route::group([
         Route::get('/', 'Bedard\Socialite\Api\GithubController@redirect');
         Route::get('callback', 'Bedard\Socialite\Api\GithubController@callback');
     });
+
+    //
+    // Twitter
+    //
+    Route::group([
+        'prefix' => 'twitter',
+        'middleware' => '\Bedard\Socialite\Classes\TwitterMiddleware',
+    ], function() {
+        Route::get('/', 'Bedard\Socialite\Api\TwitterController@redirect');
+        Route::get('callback', 'Bedard\Socialite\Api\TwitterController@callback');
+    });
 });

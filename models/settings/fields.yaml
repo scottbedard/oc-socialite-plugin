@@ -11,6 +11,9 @@ fields:
 tabs:
     stretch: true
     fields:
+        #
+        # Facebook
+        #
         facebook_is_enabled:
             label: bedard.socialite::lang.settings.facebook.is_enabled
             comment: bedard.socialite::lang.settings.facebook.is_enabled_comment
@@ -33,6 +36,9 @@ tabs:
             type: callback
             url: api/bedard/socialite/facebook/callback
 
+        #
+        # GitHub
+        #
         github_is_enabled:
             label: bedard.socialite::lang.settings.github.is_enabled
             comment: bedard.socialite::lang.settings.github.is_enabled_comment
@@ -54,3 +60,28 @@ tabs:
             tab: bedard.socialite::lang.settings.github.tab
             type: callback
             url: api/bedard/socialite/github/callback
+
+        #
+        # Twitter
+        #
+        twitter_is_enabled:
+            label: bedard.socialite::lang.settings.twitter.is_enabled
+            comment: bedard.socialite::lang.settings.twitter.is_enabled_comment
+            tab: bedard.socialite::lang.settings.twitter.tab
+            type: switch
+
+        twitter_id:
+            label: bedard.socialite::lang.settings.twitter.id
+            tab: bedard.socialite::lang.settings.twitter.tab
+            span: left
+
+        twitter_secret:
+            label: bedard.socialite::lang.settings.twitter.secret
+            tab: bedard.socialite::lang.settings.twitter.tab
+            span: right
+
+        twitter_callback:
+            label: bedard.socialite::lang.settings.fields.callback
+            tab: bedard.socialite::lang.settings.twitter.tab
+            type: callback
+            url: api/bedard/socialite/twitter/callback
