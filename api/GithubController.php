@@ -8,6 +8,11 @@ use Socialite;
 
 class GithubController extends Controller
 {
+    /**
+     * Socialite configuration.
+     *
+     * @return void
+     */
     public function __construct()
     {
         Config::set('services.github', [
@@ -27,6 +32,12 @@ class GithubController extends Controller
         return Socialite::driver('github')->redirect();
     }
 
+    /**
+     * Callback.
+     *
+     * @param  Callback $callback
+     * @return
+     */
     public function callback(Callback $callback)
     {
         $user = Socialite::driver('github')->user();
