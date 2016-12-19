@@ -1,12 +1,8 @@
 <?php namespace Bedard\Socialite\Api;
 
 use Auth;
-// use Redirect;
 use Response;
-// use Socialite;
-// use RainLab\User\Models\User;
 use Illuminate\Routing\Controller;
-// use Laravel\Socialite\Two\InvalidStateException;
 
 class AuthController extends Controller
 {

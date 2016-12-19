@@ -2,7 +2,6 @@
 
 use Bedard\Socialite\Models\Settings;
 use Config;
-use Socialite;
 
 class FacebookController extends SocialiteController
 {
