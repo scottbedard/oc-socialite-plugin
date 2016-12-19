@@ -1,8 +1,5 @@
-input.bedard-socialite-callback {
-    cursor: default !important;
-}
-
-a.bedard-socialite-copy {
+a.bedard-socialite-link {
     display: inline-block;
-    margin-top: 4px;
+    margin-top: 6px;
+    padding-right: 10px;
 }

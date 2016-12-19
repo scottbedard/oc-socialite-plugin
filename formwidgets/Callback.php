@@ -26,7 +26,9 @@ class Callback extends FormWidgetBase
      */
     public function prepareVars()
     {
-        $this->vars['value'] = url($this->formField->getConfig('url'));
+        $this->vars['name'] = $this->formField->getName();
+        $this->vars['url'] = url($this->formField->getConfig('url'));
+        $this->vars['value'] = $this->getLoadValue();
     }
 
     /**

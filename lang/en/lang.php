@@ -41,6 +41,7 @@ return[
             'copy_success' => 'The callback url has been copied to your clipboard.',
             'is_enabled_comment' => 'Turning this off will disable all third-party authentication.',
             'is_enabled' => 'Socialite authentication',
+            'use_default' => 'Use default callback',
         ],
     ],
 ];

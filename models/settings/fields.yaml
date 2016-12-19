@@ -11,28 +11,6 @@ fields:
 tabs:
     stretch: true
     fields:
-        github_is_enabled:
-            label: bedard.socialite::lang.settings.github.is_enabled
-            comment: bedard.socialite::lang.settings.github.is_enabled_comment
-            tab: bedard.socialite::lang.settings.github.tab
-            type: switch
-
-        github_id:
-            label: bedard.socialite::lang.settings.github.id
-            tab: bedard.socialite::lang.settings.github.tab
-            span: left
-
-        github_secret:
-            label: bedard.socialite::lang.settings.github.secret
-            tab: bedard.socialite::lang.settings.github.tab
-            span: right
-
-        github_callback:
-            label: bedard.socialite::lang.settings.fields.callback
-            tab: bedard.socialite::lang.settings.github.tab
-            type: callback
-            url: api/socialite/github/callback
-
         facebook_is_enabled:
             label: bedard.socialite::lang.settings.facebook.is_enabled
             comment: bedard.socialite::lang.settings.facebook.is_enabled_comment
@@ -53,4 +31,26 @@ tabs:
             label: bedard.socialite::lang.settings.fields.callback
             tab: bedard.socialite::lang.settings.facebook.tab
             type: callback
-            url: api/socialite/facebook/callback
+            url: api/bedard/socialite/facebook/callback
+
+        github_is_enabled:
+            label: bedard.socialite::lang.settings.github.is_enabled
+            comment: bedard.socialite::lang.settings.github.is_enabled_comment
+            tab: bedard.socialite::lang.settings.github.tab
+            type: switch
+
+        github_id:
+            label: bedard.socialite::lang.settings.github.id
+            tab: bedard.socialite::lang.settings.github.tab
+            span: left
+
+        github_secret:
+            label: bedard.socialite::lang.settings.github.secret
+            tab: bedard.socialite::lang.settings.github.tab
+            span: right
+
+        github_callback:
+            label: bedard.socialite::lang.settings.fields.callback
+            tab: bedard.socialite::lang.settings.github.tab
+            type: callback
+            url: api/bedard/socialite/github/callback

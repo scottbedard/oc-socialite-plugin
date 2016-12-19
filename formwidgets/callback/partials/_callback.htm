@@ -1,12 +1,21 @@
 <input
     autocomplete="off"
-    class="form-control bedard-socialite-callback"
-    readonly
+    class="form-control"
+    name="<?= $name ?>"
     type="text"
     value="<?= $value ?>">
 
 <a
-    class="bedard-socialite-copy"
+    class="bedard-socialite-link"
+    data-bedard-socialite-default
+    data-default="<?= $url ?>"
+    href="#">
+    <i class="icon-check"></i>
+    <span><?= e(trans('bedard.socialite::lang.settings.fields.use_default')) ?></span>
+</a>
+
+<a
+    class="bedard-socialite-link"
     data-bedard-socialite-copy
     data-failed="<?= e(trans('bedard.socialite::lang.settings.fields.copy_failed')) ?>"
     data-success="<?= e(trans('bedard.socialite::lang.settings.fields.copy_success')) ?>"
