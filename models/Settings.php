@@ -40,6 +40,32 @@ class Settings extends Model
         return self::get('is_enabled', false);
     }
 
+    //
+    // Facebook
+    //
+    public static function facebookId()
+    {
+        return Crypt::decrypt(self::get('facebook_id', ''));
+    }
+
+    public static function facebookSecret()
+    {
+        return Crypt::decrypt(self::get('facebook_secret', ''));
+    }
+
+    public static function facebookCallback()
+    {
+        return self::get('facebook_callback', '');
+    }
+
+    public static function facebookIsEnabled()
+    {
+        return self::get('facebook_is_enabled', false);
+    }
+
+    //
+    // GitHub
+    //
     public static function githubId()
     {
         return Crypt::decrypt(self::get('github_id', ''));
