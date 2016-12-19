@@ -1,25 +1,11 @@
 <?php namespace Bedard\Socialite\Classes;
 
-use Closure;
 use Bedard\Socialite\Models\Settings;
 
-class GithubMiddleware
+class GithubMiddleware extends SocialiteMiddleware
 {
-    /**
-     * Abort all requests when the GitHub authentication is not enabled.
-     *
-     * @param  \Illuminate\Http\Request $request
-     * @param  \Closure                 $next
-     * @return \Closure
-     */
-    public function handle($request, Closure $next)
+    public function __construct()
     {
-        if (! Settings::githubIsEnabled()) {
-            abort(403, 'Forbidden');
-
-            return;
-        }
-
-        return $next($request);
+        $this->isEnabled = Settings::githubIsEnabled();
     }
 }
