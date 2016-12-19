@@ -38,6 +38,13 @@ return[
         ],
         'github' => [
             'id' => 'Client ID',
+            'is_enabled_comment' => 'Turning this off will disable authentication with Google.',
+            'is_enabled' => 'GitHub authentication',
+            'secret' => 'Client secret',
+            'tab' => 'GitHub',
+        ],
+        'google' => [
+            'id' => 'Client ID',
             'is_enabled_comment' => 'Turning this off will disable authentication with GitHub.',
             'is_enabled' => 'GitHub authentication',
             'secret' => 'Client secret',

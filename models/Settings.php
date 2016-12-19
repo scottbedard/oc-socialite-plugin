@@ -33,6 +33,8 @@ class Settings extends Model
         'facebook_secret',
         'github_id',
         'github_secret',
+        'google_id',
+        'google_secret',
         'twitter_id',
         'twitter_secret',
     ];
@@ -86,6 +88,29 @@ class Settings extends Model
     public static function githubIsEnabled()
     {
         return self::get('github_is_enabled', false);
+    }
+
+    //
+    // Google
+    //
+    public static function googleId()
+    {
+        return Crypt::decrypt(self::get('google_id', ''));
+    }
+
+    public static function googleSecret()
+    {
+        return Crypt::decrypt(self::get('google_secret', ''));
+    }
+
+    public static function googleCallback()
+    {
+        return self::get('google_callback', '');
+    }
+
+    public static function googleIsEnabled()
+    {
+        return self::get('google_is_enabled', false);
     }
 
     //

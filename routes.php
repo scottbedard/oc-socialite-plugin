@@ -33,6 +33,17 @@ Route::group([
     });
 
     //
+    // Google
+    //
+    Route::group([
+        'prefix' => 'google',
+        'middleware' => '\Bedard\Socialite\Classes\GoogleMiddleware',
+    ], function() {
+        Route::get('/', 'Bedard\Socialite\Api\GoogleController@redirect');
+        Route::get('callback', 'Bedard\Socialite\Api\GoogleController@callback');
+    });
+
+    //
     // Twitter
     //
     Route::group([
