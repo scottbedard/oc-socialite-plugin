@@ -13,7 +13,7 @@ Route::group([
         'prefix' => 'github',
         'middleware' => '\Bedard\Socialite\Classes\GithubMiddleware',
     ], function() {
+        Route::get('/', 'Bedard\Socialite\Api\GithubController@redirect');
         Route::get('callback', 'Bedard\Socialite\Api\GithubController@callback');
-        Route::get('redirect', 'Bedard\Socialite\Api\GithubController@redirect');
     });
 });

@@ -31,7 +31,7 @@ tabs:
             label: bedard.socialite::lang.settings.fields.callback
             tab: bedard.socialite::lang.settings.facebook.tab
             type: callback
-            url: api/bedard/socialite/facebook/callback
+            url: api/bedard/socialite/facebook
 
         github_is_enabled:
             label: bedard.socialite::lang.settings.github.is_enabled
@@ -53,4 +53,4 @@ tabs:
             label: bedard.socialite::lang.settings.fields.callback
             tab: bedard.socialite::lang.settings.github.tab
             type: callback
-            url: api/bedard/socialite/github/callback
+            url: api/bedard/socialite/github
