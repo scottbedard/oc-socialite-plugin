@@ -3,6 +3,7 @@
     "description": "Socialite API for RainLab.User",
     "license": "MIT",
     "require": {
+        "guzzlehttp/guzzle": "~4.0",
         "laravel/socialite": "^2.0"
     }
 }
