@@ -27,6 +27,8 @@ return[
             'copy_success' => 'The callback url has been copied to your clipboard.',
             'is_enabled_comment' => 'Turning this off will disable all third-party authentication.',
             'is_enabled' => 'Socialite authentication',
+            'redirect_url' => 'Redirect URL',
+            'redirect_url_comment' => 'Leave blank to return user data as JSON.',
             'use_default' => 'Use default callback',
         ],
         'facebook' => [

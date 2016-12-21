@@ -44,6 +44,11 @@ class Settings extends Model
         return self::get('is_enabled', false);
     }
 
+    public static function redirectUrl()
+    {
+        return trim(self::get('redirect_url', '')) ?: false;
+    }
+
     //
     // Facebook
     //

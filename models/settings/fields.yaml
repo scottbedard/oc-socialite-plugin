@@ -7,6 +7,12 @@ fields:
         label: bedard.socialite::lang.settings.fields.is_enabled
         comment: bedard.socialite::lang.settings.fields.is_enabled_comment
         type: switch
+        span: left
+
+    redirect_url:
+        label: bedard.socialite::lang.settings.fields.redirect_url
+        comment: bedard.socialite::lang.settings.fields.redirect_url_comment
+        span: right
 
 tabs:
     stretch: true
@@ -61,7 +67,7 @@ tabs:
             tab: bedard.socialite::lang.settings.github.tab
             type: callback
             url: api/bedard/socialite/github/callback
-            
+
         #
         # Google
         #
