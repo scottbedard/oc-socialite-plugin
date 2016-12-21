@@ -1,7 +1,9 @@
 <?php namespace Bedard\Socialite\Api;
 
 use Bedard\Socialite\Classes\Callback;
+use Bedard\Socialite\Models\Settings;
 use Illuminate\Routing\Controller;
+use Redirect;
 use Socialite;
 
 class SocialiteController extends Controller
@@ -29,8 +31,13 @@ class SocialiteController extends Controller
      */
     public function callback(Callback $callback)
     {
-        $user = Socialite::driver($this->driver)->user();
+        $redirectUrl = Settings::redirectUrl();
 
-        return $callback->authenticate($user);
+        $callback->setDriver($this->driver);
+        $user = $callback->authenticate();
+
+        return $redirectUrl
+            ? Redirect::to($redirectUrl)
+            : $user;
     }
 }

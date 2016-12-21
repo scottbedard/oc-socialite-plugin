@@ -1,17 +1,35 @@
 <?php namespace Bedard\Socialite\Classes;
 
 use Auth;
+use Bedard\Socialite\Classes\EmailRequest;
 use Carbon\Carbon;
-use RainLab\User\Models\User;
+use GuzzleHttp;
+use Laravel\Socialite\Two\User as SocialiteUser;
+use RainLab\User\Models\User as RainLabUser;
+use Socialite;
 
 class Callback
 {
-    public function authenticate($client)
+    /**
+     * @var String
+     */
+    protected $driver;
+
+    /**
+     * Authenticate the current user.
+     *
+     * @return \RainLab\User\Models\User
+     */
+    public function authenticate()
     {
-        $user = User::firstOrNew(['email' => $client->email]);
+        $socialite = Socialite::driver($this->driver)->user();
+
+        $email = $socialite->email ?: (new EmailRequest)->get($this->driver, $socialite);
+
+        $user = RainLabUser::firstOrNew(['email' => $email]);
 
         if (! $user->exists) {
-            $user->name = $client->name;
+            $user->name = $socialite->name;
             $user->password = str_random(40);
 
             // @todo: make activation logic configurable
@@ -22,5 +40,15 @@ class Callback
         Auth::login($user);
 
         return $user;
+    }
+
+    /**
+     * Set the Socialite driver.
+     *
+     * @param string
+     */
+    public function setDriver($driver)
+    {
+        $this->driver = $driver;
     }
 }
