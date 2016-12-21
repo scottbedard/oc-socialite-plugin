@@ -1,7 +1,7 @@
 <?php namespace Bedard\Socialite\Classes;
 
 use GuzzleHttp;
-use Laravel\Socialite\Two\User;
+use Laravel\Socialite\Two\User as SocialiteUser;
 
 class EmailRequest
 {
@@ -12,7 +12,7 @@ class EmailRequest
      * @param  \Laravel\Socialite\Two\User  $user
      * @return string|null
      */
-    public function get($driver, User $user)
+    public function get($driver, SocialiteUser $user)
     {
         if ($driver === 'github') return $this->getGithubEmail($user);
 
@@ -22,9 +22,9 @@ class EmailRequest
     /**
      * Request the user's email from GitHub.
      *
-     * @return string
+     * @return string|null
      */
-    public function getGithubEmail(User $user)
+    public function getGithubEmail(SocialiteUser $user)
     {
         // fetch the user's emails from github
         $emails = (new GuzzleHttp\Client())
@@ -37,13 +37,17 @@ class EmailRequest
             ->json();
 
         // find and return the user's primary email address
-        foreach ($emails as $email) {
+        $fallbackEmail = null;
+
+        foreach (array_reverse($emails) as $email) {
             if ($email['primary']) {
                 return $email['email'];
             }
+
+            $fallbackEmail = $email['email'];
         }
 
-        // if no primary email was found, return null
-        return null;
+        // if no primary email was found, return the fallback email
+        return $fallbackEmail;
     }
 }
