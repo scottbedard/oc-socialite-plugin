@@ -45,10 +45,10 @@ return[
         ],
         'google' => [
             'id' => 'Client ID',
-            'is_enabled_comment' => 'Turning this off will disable authentication with GitHub.',
-            'is_enabled' => 'GitHub authentication',
+            'is_enabled_comment' => 'Turning this off will disable authentication with Google.',
+            'is_enabled' => 'Google authentication',
             'secret' => 'Client secret',
-            'tab' => 'GitHub',
+            'tab' => 'Google',
         ],
         'twitter' => [
             'id' => 'Consumer Key (API Key)',
