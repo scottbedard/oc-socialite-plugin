@@ -1,6 +1,6 @@
 # oc-socialite-plugin
 
-Simple authentication for [RainLab.User](https://github.com/rainlab/user-plugin) via [Facebook](#facebook), [GitHub](#github), [Google](#google)., and [Twitter](#twitter)..
+Simple authentication for [RainLab.User](https://github.com/rainlab/user-plugin) via [Facebook](#facebook), [GitHub](#github), [Google](#google), and [Twitter](#twitter).
 
 <a name="facebook"></a>
 ### Facebook authentication
