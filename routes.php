@@ -8,7 +8,7 @@ Route::group([
     //
     // Logout
     //
-    Route::any('api/socialite/logout', 'Bedard\Socialite\Api\AuthController@logout');
+    Route::any('logout', 'Bedard\Socialite\Api\AuthController@logout');
 
     //
     // Facebook
