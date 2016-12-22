@@ -23,7 +23,7 @@ class Callback
     {
         // grab the user details
         $socialite = Socialite::driver($this->driver)->user();
-        
+
         // if no email address is available, see if we can request it
         $email = $socialite->email ?: (new EmailRequest)->get($this->driver, $socialite);
 
@@ -37,11 +37,11 @@ class Callback
     /**
      * Find or create a new user.
      *
-     * @param  string                       $email
-     * @param  \Laravel\Socialite\Two\User  $socialite
+     * @param  string                                                   $email
+     * @param  \Laravel\Socialite\One\User|\Laravel\Socialite\Two\User  $socialite
      * @return \RainLab\User\Model\User
      */
-    protected function getUser($email, SocialiteUser $socialite)
+    protected function getUser($email, $socialite)
     {
         // look up our user by email
         $user = RainLabUser::firstOrNew(['email' => $email]);
