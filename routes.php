@@ -1,15 +1,24 @@
 <?php
 
+//
+// API
+//
+Route::group(['prefix' => 'api/bedard/socialite'], function() {
+    Route::any('logout', 'Bedard\Socialite\Api\AuthController@logout');
+
+    Route::group(['middleware' => '\Bedard\Socialite\Classes\StandardMiddleware'], function() {
+        Route::get('/', 'Bedard\Socialite\Api\AuthController@index');
+        Route::post('/login', 'Bedard\Socialite\Api\AuthController@login');
+    });
+});
+
+//
+// Third party authentication
+//
 Route::group([
     'prefix' => 'api/bedard/socialite',
     'middleware' => '\Bedard\Socialite\Classes\ApiMiddleware',
 ], function () {
-
-    //
-    // Logout
-    //
-    Route::any('logout', 'Bedard\Socialite\Api\AuthController@logout');
-
     //
     // Facebook
     //

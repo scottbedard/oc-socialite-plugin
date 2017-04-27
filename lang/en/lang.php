@@ -1,8 +1,20 @@
 <?php
 
-return[
+return [
     //
-    // Plugin
+    // api
+    //
+    'api' => [
+        'description' => 'Manage api settings.',
+        'label' => 'API settings',
+        'fields' => [
+            'is_enabled' => 'API authentication',
+            'is_enabled_comment' => 'Turning this off will disable http authentication',
+        ],
+    ],
+
+    //
+    // plugin
     //
     'plugin' => [
         'details' => [
@@ -10,16 +22,17 @@ return[
             'description' => 'Socialite API for RainLab.User.',
         ],
         'permissions' => [
-            'socialite' => 'Manage Socialite Settings',
+            'api' => 'Manage API Athentication',
+            'thirdparty' => 'Manage Third Party Authentication',
         ],
     ],
 
     //
-    // Settings
+    // settings
     //
     'settings' => [
-        'label' => 'Socialite settings',
         'description' => 'Manage authentication settings.',
+        'label' => 'Socialite settings',
         'fields' => [
             'callback' => 'Callback URL',
             'copy_callback' => 'Copy to clipboard',

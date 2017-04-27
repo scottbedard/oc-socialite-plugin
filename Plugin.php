@@ -61,9 +61,13 @@ class Plugin extends PluginBase
     public function registerPermissions()
     {
         return [
-            'bedard.socialite.manage' => [
+            'bedard.socialite.api.manage' => [
                 'tab' => 'rainlab.user::lang.plugin.tab',
-                'label' => 'bedard.socialite::lang.plugin.permissions.socialite',
+                'label' => 'bedard.socialite::lang.plugin.permissions.api',
+            ],
+            'bedard.socialite.thirdparty.manage' => [
+                'tab' => 'rainlab.user::lang.plugin.tab',
+                'label' => 'bedard.socialite::lang.plugin.permissions.thirdparty',
             ],
         ];
     }
@@ -76,15 +80,30 @@ class Plugin extends PluginBase
     public function registerSettings()
     {
         return [
-            'socialite' => [
-                'label'       => 'bedard.socialite::lang.settings.label',
-                'description' => 'bedard.socialite::lang.settings.description',
+            'api' => [
+                'category'      => SettingsManager::CATEGORY_USERS,
+                'class'         => 'Bedard\Socialite\Models\ApiSettings',
+                'description'   => 'bedard.socialite::lang.api.description',
+                'icon'          => 'icon-code',
+                'label'         => 'bedard.socialite::lang.api.label',
+                'order'         => 600,
+                'permissions' => [
+                    'bedard.socialite.api.manage',
+                    'rainlab.users.access_settings',
+                ],
+            ],
+            'thirdparty' => [
                 'category'    => SettingsManager::CATEGORY_USERS,
-                'icon'        => 'icon-key',
                 'class'       => 'Bedard\Socialite\Models\Settings',
-                'order'       => 600,
-                'permissions' => ['rainlab.users.access_settings', 'bedard.socialite.manage'],
-            ]
+                'description' => 'bedard.socialite::lang.settings.description',
+                'icon'        => 'icon-key',
+                'label'       => 'bedard.socialite::lang.settings.label',
+                'order'       => 700,
+                'permissions' => [
+                    'bedard.socialite.thirdparty.manage',
+                    'rainlab.users.access_settings',
+                ],
+            ],
         ];
     }
 
