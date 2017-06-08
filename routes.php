@@ -8,6 +8,7 @@ Route::group(['prefix' => 'api/bedard/socialite'], function() {
 
     Route::group(['middleware' => '\Bedard\Socialite\Classes\StandardMiddleware'], function() {
         Route::get('/', 'Bedard\Socialite\Api\AuthController@index');
+        Route::post('/', 'Bedard\Socialite\Api\AuthController@store');
         Route::post('/login', 'Bedard\Socialite\Api\AuthController@login');
     });
 });

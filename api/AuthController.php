@@ -2,8 +2,9 @@
 
 use Auth;
 use Event;
-use Response;
 use Illuminate\Routing\Controller;
+use RainLab\User\Models\User;
+use Response;
 
 class AuthController extends Controller
 {
@@ -48,5 +49,23 @@ class AuthController extends Controller
         Auth::logout();
 
         return Response::make('Success', 200);
+    }
+
+    /**
+     * Create a user.
+     *
+     * @return RainLab\User\Models\User
+     */
+    public function store()
+    {
+        $user = User::firstOrNew(['email' => input('email')]);
+        $user->password = input('password');
+        $user->password_confirmation = input('passwordConfirmation');
+
+        try {
+            $user->save();
+        } catch (\Exception $e) {
+            return \Response::make($e->getMessage(), 500);
+        }
     }
 }
