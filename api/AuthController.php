@@ -3,6 +3,7 @@
 use Auth;
 use Event;
 use Illuminate\Routing\Controller;
+use October\Rain\Exception\ValidationException;
 use RainLab\User\Models\User;
 use Response;
 
@@ -58,14 +59,25 @@ class AuthController extends Controller
      */
     public function store()
     {
-        $user = User::firstOrNew(['email' => input('email')]);
-        $user->password = input('password');
-        $user->password_confirmation = input('passwordConfirmation');
-
-        try {
-            $user->save();
-        } catch (\Exception $e) {
-            return \Response::make($e->getMessage(), 500);
+        // make sure the user doesn't already exist
+        if (User::whereEmail(input('email'))->exists()) {
+            return Response::make([
+                'error' => 'A user already exists with that email address.',
+            ], 500);
         }
+
+        // create our new user
+        try {
+            $user = new User(input());
+            $user->save();
+        } catch (ValidationException $e) {
+            return Response::make([
+                'error' => $e->getMessage(),
+                'fields' => $e->getFields(),
+            ], 500);
+        }
+
+        // return our new user
+        return User::findOrFail($user->id);
     }
 }
